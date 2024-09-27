@@ -1,2 +1,8 @@
 # excel-to-ddl
-Database specification document by Microsoft Excel makes DDL file.
+
+This is a tool that generates ddl file.
+
+### How to use
+
+First. You write Database specification to template Excel file (DatabaseSpec.xlsx)
+Second. Execute ddl.py.
