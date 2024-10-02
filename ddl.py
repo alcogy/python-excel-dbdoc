@@ -29,6 +29,7 @@ def make_sql(sheet):
   sql += "CREATE TABLE `" + tb_name + "` (\n"
 
   pks: list[str] = []
+  idxs: list[str] = []
   row = COLUMN_INFO_FIRST_ROW
   while(row < 10000):
     # Terminate cell.
@@ -42,7 +43,8 @@ def make_sql(sheet):
     not_null: str = ws.cell(row = row, column = 6).value
     ai: str = ws.cell(row = row, column = 7).value
     pk: str = ws.cell(row = row, column = 8).value
-    default_value: str = ws.cell(row = row, column = 9).value
+    idx: str = ws.cell(row = row, column = 9).value
+    default_value: str = ws.cell(row = row, column = 10).value
 
     # Make sql statement.
     sql += "  `" + colname + "` " + typename
@@ -65,14 +67,24 @@ def make_sql(sheet):
     if pk != None:
       pks.append(colname)
 
+    if idx != None:
+      idxs.append(colname)
+
     row += 1
   
   # PK to sql
   if len(pks) > 0:
     pk_str = ",".join(pks)
-    sql += "  PRIMARY KEY (" + pk_str + ")\n"
+    sql += "  PRIMARY KEY (" + pk_str + "),\n"
   else:
     sql = sql[:-2] + "\n"
+  
+  # Index to sql
+  if len(idxs) > 0:
+    for col in idxs:
+      sql += "  INDEX `index_" + tb_name + "_" + col + "` (`" + col + "`),\n"
+
+  sql = re.sub(r',\n$', '\n', sql)
 
   # End Table
   sql += ");"
