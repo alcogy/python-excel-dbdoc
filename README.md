@@ -1,8 +1,8 @@
 # excel-to-ddl
 
-This is a tool that generates ddl file.
+テーブル定義書からDDLを作成するためのツールです。
 
-### How to use
+### 使い方
 
-First. You write Database specification to template Excel file (DatabaseSpec.xlsx)
-Second. Execute ddl.py.
+1. テンプレート用のエクセルファイル (DatabaseSpec.xlsx)でテーブル仕様書を作成します。
+2. ddl.pyを実行します。
