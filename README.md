@@ -1,17 +1,17 @@
 # excel-to-ddl
 
-テーブル定義書からDDLを作成するためのツールです。
+Generate DDLfile from Database table specification.
 
-### 準備
-ライブラリをインストールします。
+### Prepare
+Install libraries.
 ```
 pip install openpyxl
 ```
 
-### 使い方
+### How to use.
 
-1. テンプレート用のエクセルファイル (DatabaseSpec.xlsx)でテーブル仕様書を作成します。
-2. ddl.pyを実行します。
+1. Make Database table specification by template fie (DatabaseSpec.xlsx)
+2. Excute ddl.py
 ```
 python ./ddl.py
 ```
