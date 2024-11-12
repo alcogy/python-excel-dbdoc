@@ -1,4 +1,4 @@
-# excel-to-ddl
+# Excel-to-ddl
 
 Generate DDLfile from Database table specification.
 
