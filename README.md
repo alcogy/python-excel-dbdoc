@@ -1,4 +1,4 @@
-# Excel-to-ddl
+# Python Excel DB doc
 
 Generate DDLfile from Database table specification.
 
